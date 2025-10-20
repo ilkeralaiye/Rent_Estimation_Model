@@ -118,7 +118,21 @@
             }
             Console.WriteLine("|---------------------------------------------------|");
 
-            
+            Console.WriteLine("\n\n--- (2-Input Model: Age Excluded) ---");
+            try { trainingSet = createDataSet("trainingData.csv", false); } catch (Exception e) { Console.WriteLine("Training set error: " + e.Message); }
+            try { testingSet = createDataSet("testData.csv", false); } catch (Exception e) { Console.WriteLine("Test set error: " + e.Message); }
+
+            Neuron neuron2 = new Neuron(2, lambdas[1]);
+
+            Console.WriteLine($"\nCurrent lambda: {lambda}, Epoch: {epoch}");
+            Console.WriteLine($"Weights generated randomly: \n | w1:Rooms| w2:Distance| w3:Age|\n |  " + string.Join("  |    ", neuron.getWeights().Select(w => w.ToString("F3"))));
+
+            forEpoch(neuron2, trainingSet, epochs[0]);
+            Console.WriteLine($"\n{epoch} Epoch training is done.");
+
+            trainingMSE = MSE(neuron2, testingSet, true);
+            Console.WriteLine($"\nTest MSE: {trainingMSE:F8}");
+
 
 
 
