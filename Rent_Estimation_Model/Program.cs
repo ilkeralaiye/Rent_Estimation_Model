@@ -89,6 +89,21 @@
             double testMSE = MSE(neuron, testingSet, printDetails: true);
             Console.WriteLine($"\n Test MSE: {testMSE:F8}\n||==========||==========||==========||==========||==========||");
 
+            double[,] matrix = new double[epochs.Length, lambdas.Length];
+
+            for (int i = 0; i < epochs.Length; i++) {
+
+                for (int j = 0; j < lambdas.Length; j++) {
+                    Neuron experimentalNeuron = new Neuron(3, lambdas[j]);
+
+                    // Call it for iterate epochs[i] times on training set with given neuron
+                    forEpoch(experimentalNeuron, trainingSet, epochs[i]);
+                    double mse = MSE(experimentalNeuron, testingSet);
+                    matrix[i, j] = mse;
+
+                }
+            }
+
 
 
 
