@@ -104,6 +104,22 @@
                 }
             }
 
+            Console.WriteLine("\n\n|------ Experimental Test MSE Table (3 Inputs) -----|");
+            Console.Write("| Epochs \\ Lambdas |");
+
+            foreach (var l in lambdas) { Console.Write($" {l,8:F2} |"); }
+            Console.WriteLine("\n|------------------|----------|----------|----------|");
+
+            for (int i = 0; i < epochs.Length; i++) {
+                Console.Write($"| {epochs[i],16} |");
+                for (int j = 0; j < lambdas.Length; j++)
+                    Console.Write($" {matrix[i, j],8:F5} |");
+                Console.WriteLine();
+            }
+            Console.WriteLine("|---------------------------------------------------|");
+
+            
+
 
 
 
