@@ -1,7 +1,6 @@
 ﻿using System.Transactions;
 
-namespace Rent_Estimation_Model
-{
+namespace Rent_Estimation_Model {
     internal class Neuron {
 
         private double[] weights;
@@ -26,7 +25,6 @@ namespace Rent_Estimation_Model
             for (int i = 0; i < inputs.Length; i++) { v += inputs[i] * weights[i]; }
 
             return activationFormula(v);
-
         }
 
         public void Train(double[]inputs, double target) {
@@ -34,7 +32,6 @@ namespace Rent_Estimation_Model
             double error = target - y;
 
             for (int i = 0; i < inputs.Length; i++) { weights[i] += this.lambda * error * inputs[i]; }
-
         }
 
 

@@ -8,7 +8,7 @@
             var lines = File.ReadAllLines(path);
             string[] parts;
 
-            for (int i = 0; i < lines.Length; i++) {
+            for (int i = 1; i < lines.Length; i++) {
                 parts = lines[i].Split(',');
 
                 dataSet.Add(
@@ -132,13 +132,6 @@
 
             trainingMSE = MSE(neuron2, testingSet, true);
             Console.WriteLine($"\nTest MSE: {trainingMSE:F8}");
-
-
-
-
-
-
-
 
         }
 
