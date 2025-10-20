@@ -77,6 +77,24 @@
             Console.WriteLine($"\nCurrent lambda: {lambda}, Epoch: {epoch}");
             Console.WriteLine($"Weights generated randomly: \n | w1:Rooms| w2:Distance| w3:Age|\n |  " + string.Join("  |    ", neuron.getWeights().Select(w => w.ToString("F3"))));
 
+            // First Training with 25 epoch
+            forEpoch(neuron, trainingSet, epoch);
+            Console.WriteLine($"Epoch training is done for {epoch} epochs");
+
+            Console.WriteLine($"||==========||==========||==========||==========||==========||\nFirst MSE calculations: trainingSet.");
+            double trainingMSE = MSE(neuron, trainingSet, printDetails: true);
+            Console.WriteLine($"\nTraining MSE: {trainingMSE:F8}\n||==========||==========||==========||==========||==========||");
+
+            Console.WriteLine($"||==========||==========||==========||==========||==========||\nSecond MSE calculations: testingSet.");
+            double testMSE = MSE(neuron, testingSet, printDetails: true);
+            Console.WriteLine($"\n Test MSE: {testMSE:F8}\n||==========||==========||==========||==========||==========||");
+
+
+
+
+
+
+
         }
 
     }
