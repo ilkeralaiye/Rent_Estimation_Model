@@ -53,7 +53,7 @@
                 double squaredError = Math.Pow(error, 2);
                 sumOfSquaredErrors += squaredError;
 
-                if (printDetails) { Console.WriteLine($"| {index,8} |     {point.target:F4} |        {y:F4} |    {squaredError:F8} |"); }
+                if (printDetails) { Console.WriteLine($"| {index,8} |     {(int)(point.target*10000), 6} |        {(int)(y * 10000), 6} |    {squaredError:F8} |"); }
                 index++;
             }
             return sumOfSquaredErrors / data.Count;
