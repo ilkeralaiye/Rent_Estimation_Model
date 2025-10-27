@@ -67,7 +67,7 @@
             try { testingSet = createDataSet("testData.csv", true); } catch (Exception e) { Console.WriteLine("Test set error: " + e.Message); }
 
             int[] epochs = { 25, 100 };
-            double[] lambdas = {0.01, 0.5, 0.1 };
+            double[] lambdas = {0.01, 0.05, 0.1 };
 
             double lambda = lambdas[1];
             int epoch = epochs[0];
